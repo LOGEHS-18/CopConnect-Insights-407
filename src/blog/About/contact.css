@@ -1,0 +1,36 @@
+.contact-container {
+    padding: 2%;
+    width: 100%;
+    background-color: #64ced1;
+    position: relative; /* Added position relative for proper centering */
+  }
+  
+  .contact-button {
+    position: absolute; /* Position absolute for centering */
+    top: 50%; /* Move the button to the middle vertically */
+    left: 85%; /* Move the button to the middle horizontally */
+    transform: translate(-50%, -50%); /* Center the button precisely */
+    padding: 10px;
+    width: 250px;
+    background-color: #DE5D41 ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .contact-button:hover {
+    background-color: #0a4ba6;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .contact-container {
+      padding: 2%;
+    }
+  
+    .contact-button {
+      width: 100px;
+      padding: 5px;
+    }
+  }

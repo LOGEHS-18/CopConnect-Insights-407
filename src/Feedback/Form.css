@@ -1,0 +1,355 @@
+/* CSS variables. */
+:root {
+	--PhoneInput-color--focus: #03b2cb;
+	--PhoneInputInternationalIconPhone-opacity: 0.8;
+	--PhoneInputInternationalIconGlobe-opacity: 0.65;
+	--PhoneInputCountrySelect-marginRight: 0.35em;
+	--PhoneInputCountrySelectArrow-width: 0.3em;
+	--PhoneInputCountrySelectArrow-marginLeft: var(--PhoneInputCountrySelect-marginRight);
+	--PhoneInputCountrySelectArrow-borderWidth: 1px;
+	--PhoneInputCountrySelectArrow-opacity: 0.45;
+	--PhoneInputCountrySelectArrow-color: currentColor;
+	--PhoneInputCountrySelectArrow-color--focus: var(--PhoneInput-color--focus);
+	--PhoneInputCountrySelectArrow-transform: rotate(45deg);
+	--PhoneInputCountryFlag-aspectRatio: 1.5;
+	--PhoneInputCountryFlag-height: 1em;
+	--PhoneInputCountryFlag-borderWidth: 1px;
+	--PhoneInputCountryFlag-borderColor: rgba(0, 0, 0, 0.5);
+	--PhoneInputCountryFlag-borderColor--focus: var(--PhoneInput-color--focus);
+	--PhoneInputCountryFlag-backgroundColor--loading: rgba(0, 0, 0, 0.1);
+}
+
+.PhoneInput {
+	/* This is done to stretch the contents of this component. */
+	display: flex;
+	align-items: center;
+}
+
+.PhoneInputInput {
+	/* The phone number input stretches to fill all empty space */
+	flex: 1;
+	/* The phone number input should shrink
+	   to make room for the extension input */
+	min-width: 0;
+}
+
+.PhoneInputCountryIcon {
+	width: calc(var(--PhoneInputCountryFlag-height) * var(--PhoneInputCountryFlag-aspectRatio));
+	height: var(--PhoneInputCountryFlag-height);
+}
+
+.PhoneInputCountryIcon--square {
+	width: var(--PhoneInputCountryFlag-height);
+}
+
+.PhoneInputCountryIcon--border {
+	/* Removed `background-color` because when an `<img/>` was still loading
+	   it would show a dark gray rectangle. */
+	/* For some reason the `<img/>` is not stretched to 100% width and height
+	   and sometime there can be seen white pixels of the background at top and bottom. */
+	background-color: var(--PhoneInputCountryFlag-backgroundColor--loading);
+	/* Border is added via `box-shadow` because `border` interferes with `width`/`height`. */
+	/* For some reason the `<img/>` is not stretched to 100% width and height
+	   and sometime there can be seen white pixels of the background at top and bottom,
+	   so an additional "inset" border is added. */
+	box-shadow: 0 0 0 var(--PhoneInputCountryFlag-borderWidth) var(--PhoneInputCountryFlag-borderColor),
+		inset 0 0 0 var(--PhoneInputCountryFlag-borderWidth) var(--PhoneInputCountryFlag-borderColor);
+}
+
+.PhoneInputCountryIconImg {
+	/* Fixes weird vertical space above the flag icon. */
+	/* https://gitlab.com/catamphetamine/react-phone-number-input/-/issues/7#note_348586559 */
+	display: block;
+	/* 3rd party <SVG/> flag icons won't stretch if they have `width` and `height`.
+	   Also, if an <SVG/> icon's aspect ratio was different, it wouldn't fit too. */
+	width: 100%;
+	height: 100%;
+}
+
+.PhoneInputInternationalIconPhone {
+	opacity: var(--PhoneInputInternationalIconPhone-opacity);
+}
+
+.PhoneInputInternationalIconGlobe {
+	opacity: var(--PhoneInputInternationalIconGlobe-opacity);
+}
+
+/* Styling native country `<select/>`. */
+
+.PhoneInputCountry {
+	position: relative;
+	align-self: stretch;
+	display: flex;
+	align-items: center;
+	margin-right: var(--PhoneInputCountrySelect-marginRight);
+}
+
+.PhoneInputCountrySelect {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	border: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.PhoneInputCountrySelect[disabled],
+.PhoneInputCountrySelect[readonly] {
+	cursor: default;
+}
+
+.PhoneInputCountrySelectArrow {
+	display: block;
+	content: '';
+	width: var(--PhoneInputCountrySelectArrow-width);
+	height: var(--PhoneInputCountrySelectArrow-width);
+	margin-left: var(--PhoneInputCountrySelectArrow-marginLeft);
+	border-style: solid;
+	border-color: var(--PhoneInputCountrySelectArrow-color);
+	border-top-width: 0;
+	border-bottom-width: var(--PhoneInputCountrySelectArrow-borderWidth);
+	border-left-width: 0;
+	border-right-width: var(--PhoneInputCountrySelectArrow-borderWidth);
+	transform: var(--PhoneInputCountrySelectArrow-transform);
+	opacity: var(--PhoneInputCountrySelectArrow-opacity);
+}
+
+.PhoneInputCountrySelect:focus+.PhoneInputCountryIcon+.PhoneInputCountrySelectArrow {
+	opacity: 1;
+	color: var(--PhoneInputCountrySelectArrow-color--focus);
+}
+
+.PhoneInputCountrySelect:focus+.PhoneInputCountryIcon--border {
+	box-shadow: 0 0 0 var(--PhoneInputCountryFlag-borderWidth) var(--PhoneInputCountryFlag-borderColor--focus),
+		inset 0 0 0 var(--PhoneInputCountryFlag-borderWidth) var(--PhoneInputCountryFlag-borderColor--focus);
+}
+
+.PhoneInputCountrySelect:focus+.PhoneInputCountryIcon .PhoneInputInternationalIconGlobe {
+	opacity: 1;
+	color: var(--PhoneInputCountrySelectArrow-color--focus);
+}
+
+.row {
+	margin-bottom: 20px;
+	/* Adjust the margin-bottom as needed */
+}
+
+.container {
+	max-width: 1200px;
+	/* Adjust the max-width as needed */
+	border: 2px solid #ccc;
+	/* Add a border around the form */
+	padding: 20px;
+	/* Add padding inside the border */
+	border-radius: 10px;
+	align-items: center;
+	background-color: #edf0f1;
+	color: #0c0c0c;
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.padding30px {
+	padding: 30px;
+	border-color: #ccc;
+}
+input:focus {
+    outline: none !important;
+    border: 1px solid rgb(212, 210, 241) !important;
+    box-shadow: 0 0 10px #826083 !important;
+}
+
+
+.card {
+	border: 1px solid #0d0d0d;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+.card-header {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-bottom: 1px solid #ccc;
+}
+
+.form-basic-phone {
+	margin-bottom: 20px;
+}
+
+
+.input-group {
+	margin-bottom: 20px;
+	border-color: #010101;
+}
+
+.alert-danger {
+	display: none;
+	margin-bottom: 20px;
+}
+
+.mb-3 {
+	margin-bottom: 20px;
+	border-color: #000000;
+}
+
+.form-basic-email {
+	margin-bottom: 20px;
+}
+
+.btn_purp {
+	background-color: purple;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	align-content: center;
+	height: 6%;
+	width: 100%;
+}
+
+.card-light {
+	background-color: #f8f9fa;
+	color: #343a40;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.muted {
+	color: #6c757d;
+}
+
+.PhoneInputInput,
+.PhoneInputCountry {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #1a1c1e;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.PhoneInput {
+    width: 100%;
+}
+
+/* Focus Styles */
+input:focus {
+    outline: none !important;
+    border: 1px solid rgb(90, 90, 91) !important;
+    box-shadow: 0 0 10px #826083 !important;
+}
+
+.PhoneInputCountry {
+    width: auto;
+}
+
+/* Padding Styles */
+.padding30px {
+    padding: 30px !important;
+}
+
+/* Required Field Indicator */
+.required-field:after {
+    content: "*";
+    color: red;
+}
+
+/* Checkbox Checked Styles */
+.form-check-input:checked {
+    background-color: #993c9a !important;
+    border-color: #938b93 !important;
+}
+
+/* Button Styles */
+.btn_purp {
+    --bs-btn-border-color: #55164b !important;
+    --bs-btn-bg: #612b6f !important;
+}
+
+/* Header Styles */
+.card-header,
+thead {
+    background-color: rgb(161 3 244 / 3%) !important;
+}
+
+/* Alert Styles */
+.alert-danger {
+    --bs-alert-padding-x: 0rem !important;
+    --bs-alert-padding-y: 0rem !important;
+    font-size: small !important;
+    display: none;
+}
+
+.circle {
+    position: relative;
+    background: #8cc63e;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: 48%;
+}
+
+.checkmark {
+    position: absolute;
+    transform: rotate(45deg) translate(-50%, -50%);
+    left: 35%;
+    top: 45%;
+    height: 20px;
+    width: 10px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+}
+
+/* Background Image Styles */
+.background-image {
+  background: url('https://cdn.siasat.com/wp-content/uploads/2019/06/Rajasthan-Police.jpg') center center/cover no-repeat fixed;
+  height: 100vh; /* Adjust the height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Label Float Style */
+label {
+    float: left;
+}
+
+/* Column Margin Style */
+.col {
+    margin-left: 30px !important;
+}
+
+/* Link Color */
+a {
+    color: #5a0f73 !important;
+    /* Size property is not valid here. */
+}

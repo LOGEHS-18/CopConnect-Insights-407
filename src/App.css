@@ -1,0 +1,139 @@
+.App {
+  text-align: center;
+}
+/* Example styles using Flexbox */
+/* .container1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+} */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #fff; /* Text color */
+  background-color: #3498db; /* Base color of the button */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Transition for smooth effect */
+}
+
+/* Hover effect */
+.button:hover {
+  background-color: #2980b9; /* Darker color on hover */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* styles.css */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  /* Styles for tablets and larger screens */
+  .container {
+    padding: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  /* Styles for large screens */
+  .container {
+    padding: 60px;
+  }
+}
+
+/* Add more media queries as needed */
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Your custom styles start here */
+
+.App {
+  text-align: center;
+}
+
+.NavBar {
+  background-color: #2196f3;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+.header1
+{
+  background-color: #282c34;
+  
+}
+/* Add more styles based on your design */
+body
+{
+  background-color: rgb(56, 19, 19);
+}

@@ -1,0 +1,93 @@
+/* General Styles */
+.chatbot-container {
+  position: fixed;
+  border: 1px solid #ccc;
+  padding: 2%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px #ffffff;
+  background-color: rgba(204, 204, 204, 0.5); /* Adjust the alpha value for transparency */
+  /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV7x1Hm_9haaWQvfueLtcmWL9U8EKTodc_-A&usqp=CAU'); */
+  width: 30%; /* Adjust the width as needed */
+  left: 2%; /* Adjust the left position as needed */
+  height: 80vh; /* Adjust the height as needed */
+  color: #1a1919;
+  top: 5%;
+  z-index: 9999;
+  backdrop-filter: blur(50px);
+}
+
+/* Chat Content Styles */
+.chat-content {
+  display: flex;
+  align-content: center;
+  flex-direction: column-reverse; /* Reverse the order of messages */
+  color: #242323;
+}
+
+/* Chat Messages Styles */
+.chat-messages {
+  margin-bottom: 2%;
+  max-height: 100%; /* Allow messages to fill the container */
+  overflow-y: auto;
+  color: #e0e0e0;
+}
+.chat-title
+{
+  text-align: center;
+}
+.bot-message {
+  background-color: hsl(0, 2%, 9%);
+  padding: 1%;
+  border-radius: 4px;
+  margin-bottom: 1%;
+  align-self: flex-start; /* Align robot responses to the left */
+}
+
+.user-message {
+  background-color: #0b441a; /* Color for user's messages */
+  color: #fff;
+  padding: 1%;
+  border-radius: 4px;
+  margin-bottom: 1%;
+  align-self: flex-end; /* Align user's messages to the right */
+}
+
+/* Chat Input Styles */
+.chat-input {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  flex: 1;
+  padding: 1%;
+  border: 1px solid #f3ebeb;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #ffffff;
+  color: #070707;
+  padding: 1.5%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+  .chatbot-container {
+    width: 90%;
+    left: 5%;
+    top: 5%;
+  }
+}
+
+/* Rectangle Styles */
+@media only screen and (min-aspect-ratio: 1/1) {
+  .chatbot-container {
+    width: 25%;
+    left: 2%;
+    top: 10%;
+  }
+}

@@ -1,0 +1,57 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.Container {
+  padding: 0;
+}
+
+.Grid-container {
+  margin: 0;
+}
+
+.Card {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .Grid-item {
+    margin: 0%;
+    width: 100% !important;
+  }
+}
+.button {
+  border-radius: 5px;
+}
+
+button[variant='outlined'] {
+  border-radius: 5px; 
+}
+.rounded-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px; /* You can adjust the value to change the level of rounding */
+  background-color: #e5e4e2; /* Your desired background color */
+  color: #fff; /* Your desired text color */
+  text-decoration: none; /* Remove underline for links, adjust as needed */
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.rounded-button:hover {
+  background-color: #194563; /* Change the background color on hover */
+}
+.round
+{
+  background-color: black;
+}
+.rounded:hover {
+  background-color: #ff0000; /* Change the background color on hover */
+}

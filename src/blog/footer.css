@@ -1,0 +1,79 @@
+/* Default Styles */
+footer {
+    background-color: black;
+    color: white;
+    padding: 24px 0;
+  }
+  
+  /* Container Styles */
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo Section Styles */
+  footer .logo-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  footer .logo-section img {
+    margin-right: 8px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  footer .logo-section h4 {
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+  
+  footer hr {
+    margin: 4px 0;
+    border: 1px solid whitesmoke;
+    width: 100%;
+  }
+  
+  /* Address, Phone, Email Section Styles */
+  footer .contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+  }
+  
+  footer .contact-section img {
+    margin-right: 8px;
+    width: 30px;
+    height: 30px;
+  }
+  
+  footer .contact-section h6 {
+    margin-bottom: 8px;
+  }
+  
+  /* Main Links Section Styles */
+  footer .main-links-section,
+  footer .accreditation-section,
+  footer .official-links-section,
+  footer .hackathon-links-section {
+    text-align: center;
+    margin-top: 16px;
+  }
+  
+  /* Responsive Styles */
+  @media only screen and (max-width: 768px) {
+    footer .container {
+      flex-direction: column;
+    }
+  
+    footer .contact-section {
+      text-align: center;
+    }
+  }
+  
